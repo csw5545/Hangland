@@ -1,0 +1,61 @@
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.io.*;
+import javax.imageio.*;
+import java.awt.image.BufferedImage;
+import java.util.*;
+
+/**
+  A really bad looking game of Hangman
+	@author Christopher Wong
+	
+  Words in text file - file reader
+  Random generator
+	GUI?
+
+*/
+
+public class HangmanAspect{
+
+/**
+	Throw exception in case word.txt isnt found. Maybe provide a try/catch to specify an error message
+*/
+	
+	public HangmanAspect() throws FileNotFoundException
+	{	
+		//a JTextField input will substitute this in the actual program
+		Scanner input = new Scanner(System.in);
+		
+		//make an arraylist to use throughout the program for all clients
+    //words from text put here?
+		ArrayList<String> wordList = new ArrayList<String>();
+		
+		//arraylist to use to store letters already guessed
+		ArrayList<Character> lettersGuessed = new ArrayList<Character>();
+		
+		//boolean option = true;	
+		//String choice;
+		
+	//	do{
+		
+			//to read in the words txt file and add each other to arraylist
+			Scanner filereader = new Scanner (new File("word.txt")); 
+			while(filereader.hasNextLine())
+			{
+				String wordAdd = filereader.nextLine();
+				wordList.add(wordAdd);
+			}
+			
+			//random generator to pick a random word from the list so each client will have a diff. word
+			Random random = new Random();
+			int j = random.nextInt(12);
+			String word = wordList.get(j);
+			
+			//should the max number of guesses be less or greater? i will use 6 here.
+			int maxTries = 6; 
+		
+			//create a string builder object to replace letters of word with _ or its letter later
+      ...
+      //really not expecting anyone to edit this...
+}
