@@ -56,7 +56,17 @@ public class HangmanAspect{
 			int maxTries = 6; 
 		
 			//create a string builder object to replace letters of word with _ or its letter later
-			StringBuilder
+			StringBuilder build = new StringBuilder(word.length());
+			
+			//for loop to replace all letters with a _ compared to length of selected random word
+			//probably enlarge this in the GUI part - Font
+			for(int i = 0; i < word.length(); i++) 
+			{
+				build.append("-");
+			}
+			
+			//length of word
+			int charCount = word.length();
       ...
       //really not expecting anyone to edit this...
 }
