@@ -67,6 +67,54 @@ public class HangmanAspect{
 			
 			//length of word
 			int charCount = word.length();
+
+			//loops while the player still has a number of guesses
+			//AND while length of word being guessed has a number of letters remaining > 0
+			while (maxTries > 0 && charCount > 0) 
+			{	
+				//turn every letter in the word to a char - stored in a char array
+				char[] wordArray = word.toCharArray(); 
+							
+				//print out the word as underscores (_) or what's been guessed
+				System.out.println(build.toString());
+				
+				//char[] letterGuessed = new char[15]; //doesnt work
+				
+				//a JTextField will replace this for inputted letter
+				System.out.println("Enter letter: ");	
+				
+				//have the letter inputted as a char to then add to arraylist to show later for user
+				char guessChar = input.next().toCharArray()[0];
+				lettersGuessed.add(guessChar);
+									
+									//doesn't work with array
+									//for(int i =0; i<letterGuessed.length;i++)
+									//{
+									//	letterGuessed[i] = guessChar;
+									//}
+				
+				//boolean value, not found false, found true
+				boolean foundletter = false;
+				
+				//loop to compare inputted char letter with the guess word char array letter elements
+				for(int i = 0; i < word.length(); i++)
+				{
+					//comparing letter input with the whole word array
+					//if a match is found, set boolean true
+					if(guessChar == wordArray[i])
+					{	
+						foundletter=true;
+						//change that location in the word char array from underscore to the correct guessed letter 
+						build.setCharAt(i, guessChar);
+						//decrease the number of char left to guess by 1
+						charCount--;
+					}
+				}
+
+				//how many tries allowed???
+				//print out the arraylist of char guessed and inputted already
+				//JOptionPane in the actual GUI project or a little JTextField or Area of its own
+				System.out.println("Letters tried: ");
       ...
       //really not expecting anyone to edit this...
 }
