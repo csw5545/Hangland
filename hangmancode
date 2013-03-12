@@ -115,6 +115,58 @@ public class HangmanAspect{
 				//print out the arraylist of char guessed and inputted already
 				//JOptionPane in the actual GUI project or a little JTextField or Area of its own
 				System.out.println("Letters tried: ");
+				
+				for(int i = 0; i<lettersGuessed.size();i++)
+				{
+					System.out.print(lettersGuessed.get(i)+", ");	
+				}
+				
+				//if the underscores are gone and the word matches the word to be guessed
+				//JOptionPane in the actual GUI Project
+				if(build.toString().equals(word))
+				{
+					//you won! max tries to 0 to tell that its over
+					System.out.println("\nYou Won.");
+					System.out.println("Correct! You guessed " + word);
+					maxTries = 0;
+					break;	//break from loop
+				}	
+				
+				//incorrect guesses, decrease max tries by 1 each time
+				else if (!foundletter)
+				{
+					maxTries--;
+					//max tries = 0 no more tries, you lose
+					//JOptionPane in actual GUI
+					if (maxTries == 0)
+					{
+						System.out.println("\nYou Lose.");
+						System.out.println("The correct word was " + word);
+						break;
+					}
+				}
+				
+				System.out.println("\nYou have "  + maxTries + " " + "wrong guesses left");
+
+			}	
+		
+		//play again option?
+		System.out.println("Play again? (y/n)");
+		input.nextLine();
+		choice = input.nextLine();
+		option = (choice.equalsIgnoreCase("y"));
+			if (!option) {
+			System.out.println("Goodbye!");
+		}
+		//}while (option == true); 
+	}
+	
+
+	public static void main(String[] args) throws FileNotFoundException 
+	{
+		HangmanAspect hangman = new HangmanAspect();
+	}
+}
       ...
       //really not expecting anyone to edit this...
 }
